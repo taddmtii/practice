@@ -7,6 +7,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
+builder.Services.AddScoped<IWeatherProvider, OpenWeatherProvider>();
+builder.Services.AddSingleton<InterviewPractice.ILogger, ConsoleLogger>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
